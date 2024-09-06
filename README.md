@@ -14,4 +14,4 @@ Colton Sellner
 
 ## License
 This website uses the MIT License which basically means that you can copy any of my code as long as you do not use it for commercial purposes. I am happy to share as many mentors and developers have done for me!
-See [LICENSE] (docs/LICENSE) for a detailed breakdown
+See [LICENSE](docs/LICENSE) for a detailed breakdown
