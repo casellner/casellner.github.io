@@ -7,7 +7,8 @@ No Computer Science Doctorate needed! Just go to https://casellner.github.io
 ## Roadmap
 - Test some javascript to make a platformer within the website
 - add content to the site such as an "about me"
-- add Bootstrap to make the website look somewhat professional
+- design a background and character for the platformer aspect
+- add a Bootstrap theme that matches
 
 ## Authors
 Colton Sellner
