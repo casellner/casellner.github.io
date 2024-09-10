@@ -3,9 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Colton Sellner's Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
+<style>
+    canvas {
+        position: absolute;
+        left:0;
+        top:0;
+        z-index: -1;
+    }
+</style>
 <body>
-    <h1>Welcome to my page!</h1>
+    <canvas></canvas>
+    <h1 class="text-center pt-3">Colton Sellner</h1>
+    <div class="px-3">
+        <h2>About Me</h2>
+        <p>
+            Hello, my name is Colton and I am a software developer. 
+            This December, I will graduate from Tennessee Tech with a BS in Computer Science. 
+            I am currently looking for an internship or job in my field. 
+        </p>
+    </div>
+    <div class="px-3">
+        <h2>Projects</h2>
+        <ul class="list-group">
+            <li class="list-group-item bg-transparent border-dark">
+                <h3>Bridging Hope</h3>
+                <p>
+                    Bridging Hope is my senior project for my Bachelor's degree from Tennessee Tech.
+                    The finished product will be a web application that allows volunteers at nonprofits track the aid they give to people.
+                    It will also help people in need find resources in their area.
+                </p>
+                <a href="https://bridginghope.life">Bridging Hope</a>
+            </li>
+            <li class="list-group-item bg-transparent border-dark">
+                <h3>Arduino IOT Simulator</h3>
+                <p>
+                    I worked with a small team in my Web Development class to build an Internet of Things simulator for a "smart chicken coop." 
+                    We used Arduino controllers with humidity and temperature sensors, a motor, a motion sensor, and LEDs to get readings for the conditions of the coop and to simulate opening/closing a coop door. 
+                    We utilized software taught in the class such as Node.js, HTML, Bootstrap, jQuery, and SweetAlert2 to build a RESTful API that a client could connect to and manage their SmartCoop. 
+                    See the link below for our GitHub repository.
+                </p>
+                <a href="https://github.com/casellner/CSC3100-ExtraCredit">Smart Coop</a>
+            </li>
+            <li class="list-group-item bg-transparent border-dark">
+                <h3>TN Tech Game Dev Club Game Jam Fall 2022</h3>
+                <p>A fellow student and I made a video game in 48 hours and named it Clicksanity.</p>
+                <a href="https://casellner.itch.io/clicksanity">Clicksanity</a>
+            </li>
+        </ul>
+    </div>
+    <div class="px-3 py-3">
+        <h2>Other Sites</h2>
+        <a href="https://github.com/casellner">GitHub</a> |
+        <a href="https://www.linkedin.com/in/colton-sellner">LinkedIn</a> |
+        <a href="https://casellner.itch.io/">Itch.io</a>
+    </div>
 </body>
+
+<!--javascript for platformer functionality-->
+<script src="index.js"></script>
+
+<!--bootstrap-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
 </html>
