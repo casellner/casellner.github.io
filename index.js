@@ -9,5 +9,20 @@ canvas.height = 64 * 9; //576
 //canvas.width = document.body.clientWidth;
 //canvas.height = document.body.clientHeight;
 
-c.fillStyle = `rgb(173, 216, 230)`; //canvas color
-c.fillRect(0, 0, canvas.width, canvas.height); //x, y, width, height
+const player = new Player();
+
+//animation loop
+function animate() {
+    window.requestAnimationFrame(animate);
+    //console.log('animate');
+
+    //background
+    c.fillStyle = `rgb(173, 216, 230)`; //canvas color
+    c.fillRect(0, 0, canvas.width, canvas.height); //x, y, width, height
+
+    //player
+    player.draw();
+    player.update();
+}
+
+animate(); //call animate
