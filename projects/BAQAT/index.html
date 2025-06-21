@@ -9,15 +9,41 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
     <link rel="stylesheet" href="public/bootstrap.min.css">
+
+    <style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes reload {
+            0%   {opacity: 100;}
+            50%  {opacity: 0;}
+            100% {opacity: 100;}
+        }
+
+        .animated-show {
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        .animated-reload {
+            animation: reload 0.3s;
+        }
+    </style>
 </head>
 
 <body>
     <div class="d-flex justify-content-center mt-3">
-    <div class="card">
-        <div class="card-body">
-            <p class="text-center m-0 fs-1" id="clock"></p>
+        <div class="card">
+            <div class="card-body">
+                <p class="text-center m-0 fs-1" id="clock"></p>
+            </div>
         </div>
-    </div>
     </div>
 
     <h2 class="text-center mt-5">Break length</h2>
@@ -27,30 +53,32 @@
         <button class="btn btn-primary btn-lg" disabled>Custom</button>
     </div>
 
-    <h2 class="text-center mt-5">BAQAT</h2>
-    <div class="d-flex flex-wrap justify-content-evenly mt-3">
-        <div class="card bg-success m-1" style="--bs-bg-opacity: .5;">
-            <div class="card-header fs-5">PDT</div>
-            <div class="card-body fs-3" id="pdt">00:00 AM</div>
-        </div>
-        <div class="card bg-danger m-1" style="--bs-bg-opacity: .5;">
-            <div class="card-header fs-5">MDT</div>
-            <div class="card-body fs-3" id="mdt">00:00 AM</div>
-        </div>
-        <div class="card bg-warning m-1" style="--bs-bg-opacity: .5;">
-            <div class="card-header fs-5">CDT</div>
-            <div class="card-body fs-3" id="cdt">00:00 AM</div>
-        </div>
-        <div class="card bg-light m-1" style="--bs-bg-opacity: .5;">
-            <div class="card-header fs-5">EDT</div>
-            <div class="card-body fs-3" id="edt">00:00 AM</div>
+    <div class="visually-hidden" id="baqat">
+        <h2 class="text-center mt-5">BAQAT</h2>
+        <div class="d-flex flex-wrap justify-content-evenly gap-3 mt-3">
+            <div class="card bg-success" style="--bs-bg-opacity: .5;">
+                <div class="card-header fs-5">PDT</div>
+                <div class="card-body fs-3" id="pdt">00:00 AM</div>
+            </div>
+            <div class="card bg-danger" style="--bs-bg-opacity: .5;">
+                <div class="card-header fs-5">MDT</div>
+                <div class="card-body fs-3" id="mdt">00:00 AM</div>
+            </div>
+            <div class="card bg-warning" style="--bs-bg-opacity: .5;">
+                <div class="card-header fs-5">CDT</div>
+                <div class="card-body fs-3" id="cdt">00:00 AM</div>
+            </div>
+            <div class="card bg-light" style="--bs-bg-opacity: .5;">
+                <div class="card-header fs-5">EDT</div>
+                <div class="card-body fs-3" id="edt">00:00 AM</div>
+            </div>
         </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
         crossorigin="anonymous"></script>
-    
+
     <script>
         function updateClock() {
             const now = new Date().toLocaleTimeString();
@@ -58,14 +86,37 @@
         }
 
         function updateBaqatTimes(breakMinutes) {
-            const time = new Date(new Date().getTime() + breakMinutes*60000);
-            document.getElementById('pdt').textContent = time.toLocaleTimeString('en-US', {hour: '2-digit', minute: '2-digit', hour12: true, timeZone: 'America/Los_Angeles'});
-            document.getElementById('mdt').textContent = time.toLocaleTimeString('en-US', {hour: '2-digit', minute: '2-digit', hour12: true, timeZone: 'America/Denver'});
-            document.getElementById('cdt').textContent = time.toLocaleTimeString('en-US', {hour: '2-digit', minute: '2-digit', hour12: true, timeZone: 'America/Chicago'});
-            document.getElementById('edt').textContent = time.toLocaleTimeString('en-US', {hour: '2-digit', minute: '2-digit', hour12: true, timeZone: 'America/New_York'});
-        }
+            const pdt = document.getElementById('pdt');
+            const mdt = document.getElementById('mdt');
+            const cdt = document.getElementById('cdt');
+            const edt = document.getElementById('edt');
 
-        //updateBaqatTimes(12);
+            // Get time that is breakMinutes in the future and update the times in #baqat
+            const time = new Date(new Date().getTime() + breakMinutes * 60000);
+            pdt.textContent = time.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true, timeZone: 'America/Los_Angeles' });
+            mdt.textContent = time.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true, timeZone: 'America/Denver' });
+            cdt.textContent = time.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true, timeZone: 'America/Chicago' });
+            edt.textContent = time.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true, timeZone: 'America/New_York' });
+
+            // Animate BAQAT times to show that they were updated
+            pdt.classList.remove('animated-reload');
+            void pdt.offsetWidth;                
+            pdt.classList.add('animated-reload');
+            mdt.classList.remove('animated-reload');
+            void mdt.offsetWidth;                
+            mdt.classList.add('animated-reload');
+            cdt.classList.remove('animated-reload');
+            void cdt.offsetWidth;                
+            cdt.classList.add('animated-reload');
+            edt.classList.remove('animated-reload');
+            void edt.offsetWidth;                
+            edt.classList.add('animated-reload');
+
+            // Animate BAQAT div by making it fade in if it is hidden
+            divBaqat = document.getElementById('baqat');
+            divBaqat.classList.remove('visually-hidden');
+            divBaqat.classList.add('animated-show');
+        }
 
         updateClock();
         setInterval(updateClock, 1000);
