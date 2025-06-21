@@ -10,6 +10,7 @@
         integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
     <link rel="stylesheet" href="public/bootstrap.min.css">
 
+    <!-- Custom animations for fading in and out -->
     <style>
         @keyframes fadeIn {
             from {
@@ -46,6 +47,7 @@
 </head>
 
 <body>
+    <!-- Clock -->
     <div class="d-flex justify-content-center mt-3">
         <div class="card">
             <div class="card-body">
@@ -104,7 +106,8 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" onClick="updateBaqatTimes(-1)" data-bs-dismiss="modal">Calculate time!</button>
+                    <button type="button" class="btn btn-primary" onClick="updateBaqatTimes(-1)"
+                        data-bs-dismiss="modal">Calculate time!</button>
                 </div>
             </div>
         </div>
@@ -115,23 +118,32 @@
         crossorigin="anonymous"></script>
 
     <script>
+        /**
+         * Updates the clock element with the current time in hh:mm:ss
+         */
         function updateClock() {
             const now = new Date().toLocaleTimeString();
             document.getElementById('clock').textContent = now;
         }
 
+        /**
+         * Updates the baqat times for each time zone and plays animations
+         * @param {breakMinutes} - the length of the break being taken (-1 is passed for a custom time)
+         */
         function updateBaqatTimes(breakMinutes) {
             const pdt = document.getElementById('pdt');
             const mdt = document.getElementById('mdt');
             const cdt = document.getElementById('cdt');
             const edt = document.getElementById('edt');
 
-            // Get time that is breakMinutes in the future and update the times in #baqat
+            // If the custom button was pressed, update breakMinutes with the time entered
             if (breakMinutes == -1) {
                 let hours = document.getElementById('hours').value;
                 let minutes = document.getElementById('minutes').value;
-                breakMinutes = 60 * hours + minutes;
+                breakMinutes = (60 * hours) + minutes;
             }
+
+            // Get time that is breakMinutes in the future and update the times in #baqat
             const time = new Date(new Date().getTime() + breakMinutes * 60000);
             pdt.textContent = time.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true, timeZone: 'America/Los_Angeles' });
             mdt.textContent = time.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true, timeZone: 'America/Denver' });
@@ -158,6 +170,7 @@
             divBaqat.classList.add('animated-show');
         }
 
+        // update the clock every second
         updateClock();
         setInterval(updateClock, 1000);
     </script>
