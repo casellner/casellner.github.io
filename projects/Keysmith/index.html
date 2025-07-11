@@ -11,17 +11,26 @@
     <h1>Welcome to Keysmith!</h1>
     <h2>Type the word below to begin.</h2>
 
+    <p>Score:</p>
+    <p id="score">0</p>
+
     <label id="inputLabel" for="myInput"></label>
     <input type="text" id="myInput" placeholder="Type the word above" />
 
     <script>
         let randomWord;
         let words = ["bug", "toe", "hum", "eat"];
+        let score = 0;
 
         function generateRandomWord() {
             let rand = Math.floor(Math.random() * words.length); // generate a random integer from 0 to words.length (a valid element of words array)
             randomWord = words[rand];
             document.getElementById('inputLabel').innerHTML = randomWord;
+        }
+
+        function increaseScore(amount) {
+            score += amount;
+            document.getElementById('score').innerHTML = score;
         }
 
         generateRandomWord(); // generate first word
@@ -32,6 +41,7 @@
             if (this.value === randomWord) { // if the user typed the word correctly
                 console.log("Nice! You typed:", this.value);
                 this.value = ''; // Reset input
+                increaseScore(1);
                 generateRandomWord();
             }
         });
