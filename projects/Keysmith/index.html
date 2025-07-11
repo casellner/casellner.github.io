@@ -9,5 +9,19 @@
 </head>
 <body>
     <h1>Hello, world!</h1>
+
+    <p>bug</p>
+    <input type="text" id="myInput" placeholder="Type the word above" />
+
+    <script>
+        const input = document.getElementById('myInput');
+
+        input.addEventListener('input', function () {
+            if (this.value.length === 3 && this.value === "bug") { // if the user typed the word correctly
+                console.log("Nice! You typed:", this.value);
+                this.value = ''; // Reset input
+            }
+        });
+    </script>
 </body>
 </html>
