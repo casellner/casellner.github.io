@@ -5,3 +5,6 @@
 
 ## Do Later
 - Add tree/wood resource
+
+## Ideas
+- Blueprint image for shop background
