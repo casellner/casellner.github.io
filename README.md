@@ -1,13 +1,12 @@
 # casellner.github.io
-Here is the code for my portfolio and personal website.
+Here is the code for my personal website and portfolio.
 
 ## Usage
-No Computer Science Doctorate needed! Just go to https://casellner.github.io
+No compilation needed! Just go to https://casellner.github.io
 
 ## Roadmap
-- Test some javascript to make a platformer within the website
-- design a background and character for the platformer aspect
-- add a Bootstrap theme or CSS that matches platformer style
+- Add more content to site
+- Add a bit of CSS (keeping site minimalistic)
 
 ## Authors
 Colton Sellner
