@@ -1,3 +1,10 @@
+body {
+    /* B612 Mono font */
+    font-family: "B612 Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+}
+
 /* navbar */
 nav {
     display: flex;
