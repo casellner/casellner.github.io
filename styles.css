@@ -5,6 +5,14 @@ body {
     font-style: normal;
 }
 
+/* font for headers */
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Source Code Pro", monospace;
+    font-optical-sizing: auto;
+    font-weight: 650;
+    font-style: normal;
+}
+
 /* navbar */
 nav {
     display: flex;
@@ -19,6 +27,10 @@ nav {
 
 #nav-links li {
     list-style-type: none;
+}
+
+#hero * {
+    text-align: center;
 }
 
 /* projects */

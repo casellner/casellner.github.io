@@ -6,11 +6,14 @@ No compilation needed! Just go to https://casellner.github.io
 
 ## Roadmap
 - Add more content to site
-- Add a bit of CSS (keeping site minimalistic)
+- Polish up the project cards:
+    - Add images
+    - Reduce with and put cards in a row
+- Change style of navbar links
 
 ## Authors
 Colton Sellner
 
 ## License
-This website uses the MIT License which basically means that you can copy any of my code as long as you do not use it for commercial purposes. I am happy to share as many mentors and developers have done for me!
+This website uses the MIT License which basically means that you can copy any of my code as long as you do not use it for commercial purposes. I am happy to share!
 See [LICENSE](docs/LICENSE) for a detailed breakdown.
