@@ -1,0 +1,44 @@
+body {
+    /* B612 Mono font */
+    font-family: "B612 Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* font for headers */
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Source Code Pro", monospace;
+    font-optical-sizing: auto;
+    font-weight: 650;
+    font-style: normal;
+}
+
+/* navbar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#nav-links {
+    display: flex;
+    gap: 10px;
+}
+
+#nav-links li {
+    list-style-type: none;
+}
+
+#hero * {
+    text-align: center;
+}
+
+/* projects */
+.project-card {
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    border-radius: 20px;
+
+    padding: 10px;
+}
